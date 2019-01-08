@@ -20,6 +20,7 @@ export class SudooInternationalization {
 
     private constructor(initial: LOCALE) {
 
+        this._initial = initial;
         this._map = new Map<LOCALE, PROFILE>();
     }
 
