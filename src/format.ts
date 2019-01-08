@@ -4,7 +4,9 @@
  * @description Format
  */
 
+import { _Map } from "@sudoo/bark";
 import { PROFILE } from "./declare";
+import { fillMessage } from "./util";
 
 export class SudooFormat {
 
@@ -22,18 +24,24 @@ export class SudooFormat {
         this._initial = initial;
     }
 
-    public get(key: string): string {
+    public get length(): number {
+        return _Map.keys(this._profile).length;
+    }
+
+    public raw(key: string): string {
 
         if (this._profile[key]) {
-
             return this._profile[key];
         }
-
         if (this._initial[key]) {
-
             return this._initial[key];
         }
-
         throw new Error("[Sudoo-Internationalization] undefined key: {" + key + "}");
+    }
+
+    public get(key: string, ...args: any[]) {
+
+        const raw: string = this.raw(key);
+        return fillMessage(raw, ...args);
     }
 }

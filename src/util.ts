@@ -6,13 +6,14 @@
 
 import { PROFILE } from "./declare";
 
-export const fillMessage = (message: string, ...placeholders: string[]) => {
-
-    placeholders.reduce((previous: string, placeholder: string) => {
-
-        return previous.replace('{}', placeholder);
+export const fillMessage = (message: string, ...placeholders: any[]) =>
+    placeholders.reduce((previous: string, placeholder: any) => {
+        if (placeholder.toString) {
+            return previous.replace('{}', placeholder.toString());
+        }
+        return previous.replace('{}', typeof placeholder);
     }, message);
-};
+
 
 export const profileOrEmpty = (profile?: PROFILE): PROFILE => {
 
