@@ -4,8 +4,10 @@
  * @description Declare
  */
 
-export enum LANGUAGE {
+export enum LOCALE {
 
-    ENGLISH_AMERICA = "en_us",
-    CHINESE_SIMPLIFIED = "zh_cn",
+    ENGLISH_AMERICA = "en_US",
+    CHINESE_SIMPLIFIED = "zh_CN",
 }
+
+export type PROFILE = Record<string, string>;
