@@ -1,0 +1,46 @@
+{
+  "name": "@sudoo/internationalization",
+  "version": "1.0.0",
+  "description": ":bamboo: I18n",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SudoDotDog/Sudoo-Internationalization.git"
+  },
+  "keywords": [
+    "Sudoo",
+    "I18n"
+  ],
+  "author": "WMXPY",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SudoDotDog/Sudoo-Internationalization/issues"
+  },
+  "homepage": "https://github.com/SudoDotDog/Sudoo-Internationalization#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@sudoo/triforce": "^1.1.0"
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "include": [
+      "script/**/*.ts",
+      "src/**/*.ts"
+    ],
+    "instrument": true,
+    "reporter": [
+      "json",
+      "text-summary"
+    ],
+    "report-dir": "coverage",
+    "require": [
+      "./test/tshook.js"
+    ],
+    "sourceMap": true
+  }
+}
