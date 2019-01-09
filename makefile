@@ -3,12 +3,8 @@ build := typescript/tsconfig.build.json
 dev := typescript/tsconfig.dev.json
 
 # NPX functions
-ifeq ($(OS), Windows_NT)
-	tsc := .\node_modules\.bin\tsc
-else
-	tsc := node_modules/.bin/tsc
-endif
 mocha := node_modules/.bin/mocha
+tsc := node_modules/.bin/tsc
 
 main: dev
 
@@ -18,7 +14,7 @@ dev:
 
 build:
 	@echo "[INFO] Building for production"
-	@$(tsc) --p $(build)
+	@NODE_ENV=production $(tsc) --p $(build)
 	
 tests:
 	@echo "[INFO] Testing with Mocha"
