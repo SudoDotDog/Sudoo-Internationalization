@@ -10,7 +10,7 @@ main: dev
 
 dev:
 	@echo "[INFO] Building for development"
-	@$(tsc) --p $(dev)
+	@NODE_ENV=development $(tsc) --p $(dev)
 
 build:
 	@echo "[INFO] Building for production"
