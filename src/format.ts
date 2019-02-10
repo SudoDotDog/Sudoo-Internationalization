@@ -4,7 +4,7 @@
  * @description Format
  */
 
-import { _Map } from "@sudoo/bark";
+import { _Map } from "@sudoo/bark/map";
 import { PROFILE } from "./declare";
 import { fillMessage } from "./util";
 
