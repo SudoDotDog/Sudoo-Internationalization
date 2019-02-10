@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@sudoo/bark@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@sudoo/bark/-/bark-1.2.1.tgz#622e75a36388af50539e0896563bd15163e059e6"
-  integrity sha512-O3011BzqwiEMXSY1UD98/61jemhW9I9IvuO7RBE6Xwt7+nmkXZpPkKAIRuYK4VYrEr/vd/MWfYiM2JgBNfvBog==
+"@sudoo/bark@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@sudoo/bark/-/bark-2.1.0.tgz#0e061a7736eb90891fc732c89bb328aa40eadfc8"
+  integrity sha512-2JfmCgbc8IQRiKeCeCIlnZHlRzvZVUe5Arj2TDM5tfvhTL+XbEFv/14Fschgm2Oc0O72JTCULtmYTirdrPO6ew==
 
 "@sudoo/triforce@^1.1.0":
   version "1.2.0"
