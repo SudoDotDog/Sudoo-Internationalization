@@ -13,7 +13,7 @@ import { SudooInternationalization } from "../../src/internationalization";
 describe('Given a {Internationalization} class', (): void => {
 
     const chance: Chance.Chance = new Chance('internationalization-internationalization');
-    const locale: LOCALE = LOCALE.ENGLISH_AMERICA;
+    const locale: LOCALE = LOCALE.ENGLISH_UNITED_STATES;
 
     it('should be able to create a instance', (): void => {
 

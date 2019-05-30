@@ -14,7 +14,7 @@ import { SudooInternationalization } from "../../src/internationalization";
 describe('General unit tests', (): void => {
 
     const chance: Chance.Chance = new Chance('internationalization-index');
-    const US: LOCALE = LOCALE.ENGLISH_AMERICA;
+    const US: LOCALE = LOCALE.ENGLISH_UNITED_STATES;
     const CN: LOCALE = LOCALE.CHINESE_SIMPLIFIED;
 
     it('should be able to get different locale', (): void => {
