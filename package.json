@@ -21,10 +21,10 @@
   },
   "homepage": "https://github.com/SudoDotDog/Sudoo-Internationalization#readme",
   "dependencies": {
-    "@sudoo/bark": "^2.1.0"
+    "@sudoo/bark": "^2.6.4"
   },
   "devDependencies": {
-    "@sudoo/triforce": "^1.4.0"
+    "@sudoo/triforce": "^1.6.0"
   },
   "nyc": {
     "extension": [
