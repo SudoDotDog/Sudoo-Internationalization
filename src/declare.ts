@@ -16,7 +16,7 @@ export enum LOCALE {
     JAPANESE_JAPAN = "ja_JP",
     KOREAN_KOREA = "ko_KR",
     MAORI_NEW_ZEALAND = "mi_NZ",
-    RUSSIAN_Russia = "ru_RU",
+    RUSSIAN_RUSSIA = "ru_RU",
     SPANISH_MEXICO = "es_MX",
     SPANISH_SPAIN = "es_ES",
 }
