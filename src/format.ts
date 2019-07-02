@@ -30,10 +30,10 @@ export class SudooFormat {
 
     public raw(key: string): string {
 
-        if (this._profile[key]) {
+        if (typeof this._profile[key] === 'string') {
             return this._profile[key];
         }
-        if (this._initial[key]) {
+        if (typeof this._initial[key] === 'string') {
             return this._initial[key];
         }
         throw new Error("[Sudoo-Internationalization] undefined key: {" + key + "}");
