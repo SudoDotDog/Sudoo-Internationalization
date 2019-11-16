@@ -24,7 +24,7 @@
     "@sudoo/bark": "^2.7.1"
   },
   "devDependencies": {
-    "@sudoo/triforce": "^1.6.0"
+    "@sudoo/triforce": "^2.0.3"
   },
   "nyc": {
     "extension": [
