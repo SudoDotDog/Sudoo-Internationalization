@@ -4,7 +4,6 @@
  * @description Format
  */
 
-import { _Map } from "@sudoo/bark/map";
 import { PROFILE } from "./declare";
 import { fillMessage } from "./util";
 
@@ -25,7 +24,7 @@ export class SudooFormat {
     }
 
     public get length(): number {
-        return _Map.keys(this._profile).length;
+        return Object.keys(this._profile).length;
     }
 
     public raw(key: string): string {
