@@ -6,6 +6,7 @@
 
 import { LOCALE, PROFILE } from "./declare";
 import { SudooFormat } from "./format";
+import { getSystemLanguage } from "./language";
 import { profileOrEmpty } from "./util";
 
 export class SudooInternationalization {
@@ -13,6 +14,12 @@ export class SudooInternationalization {
     public static create(initial: LOCALE): SudooInternationalization {
 
         return new SudooInternationalization(initial);
+    }
+
+    public static withSystemLanguage(): SudooInternationalization {
+
+        const systemLanguage: LOCALE = getSystemLanguage();
+        return new SudooInternationalization(systemLanguage);
     }
 
     private readonly _initial: LOCALE;
