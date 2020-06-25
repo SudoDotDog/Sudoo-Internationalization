@@ -3,8 +3,12 @@ build := typescript/tsconfig.build.json
 dev := typescript/tsconfig.dev.json
 
 # NPX functions
-mocha := node_modules/.bin/mocha
 tsc := node_modules/.bin/tsc
+ts_node := node_modules/.bin/ts-node
+mocha := node_modules/.bin/mocha
+eslint := node_modules/.bin/eslint
+
+.IGNORE: clean-linux
 
 main: dev
 
@@ -15,15 +19,28 @@ dev:
 build:
 	@echo "[INFO] Building for production"
 	@NODE_ENV=production $(tsc) --p $(build)
-	
+
 tests:
 	@echo "[INFO] Testing with Mocha"
-	@NODE_ENV=test $(mocha)
+	@NODE_ENV=test \
+	$(mocha) --config test/.mocharc.json
 
 cov:
 	@echo "[INFO] Testing with Nyc and Mocha"
 	@NODE_ENV=test \
-	nyc $(mocha)
+	nyc $(mocha) --config test/.mocharc.json
+
+lint:
+	@echo "[INFO] Linting"
+	@NODE_ENV=production \
+	$(eslint) . --ext .ts,.tsx \
+	--config ./typescript/.eslintrc.json
+
+lint-fix:
+	@echo "[INFO] Linting and Fixing"
+	@NODE_ENV=development \
+	$(eslint) . --ext .ts,.tsx \
+	--config ./typescript/.eslintrc.json --fix
 
 install:
 	@echo "[INFO] Installing dev Dependencies"
@@ -33,16 +50,25 @@ install-prod:
 	@echo "[INFO] Installing Dependencies"
 	@yarn install --production=true
 
-clean:
-ifeq ($(OS), Windows_NT)
-	@echo "[INFO] Skipping"
-else
+license: clean
+	@echo "[INFO] Sign files"
+	@NODE_ENV=development $(ts_node) script/license.ts
+
+clean: clean-linux
+	@echo "[INFO] Cleaning release files"
+	@NODE_ENV=development $(ts_node) script/clean-app.ts
+
+clean-linux:
 	@echo "[INFO] Cleaning dist files"
 	@rm -rf dist
+	@rm -rf dist_script
 	@rm -rf .nyc_output
 	@rm -rf coverage
-endif
 
-publish: install tests build
+publish: install tests lint license build
 	@echo "[INFO] Publishing package"
-	@npm publish --access=public
+	@cd app && npm publish --access=public
+
+publish-dry-run: install tests lint license build
+	@echo "[INFO] Publishing package"
+	@cd app && npm publish --access=public --dry-run
