@@ -38,7 +38,7 @@ export class SudooFormat {
         throw new Error("[Sudoo-Internationalization] undefined key: {" + key + "}");
     }
 
-    public get(key: string, ...args: any[]) {
+    public get(key: string, ...args: any[]): string {
 
         const raw: string = this.raw(key);
         return fillMessage(raw, ...args);
