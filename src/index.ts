@@ -4,7 +4,7 @@
  * @description Index
  */
 
-export { LOCALE, PROFILE } from './declare';
-export { SudooFormat } from './format';
-export { SudooInternationalization } from './internationalization';
+export * from './declare';
+export * from './format';
+export * from './internationalization';
 
