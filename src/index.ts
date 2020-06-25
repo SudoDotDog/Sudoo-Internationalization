@@ -7,4 +7,5 @@
 export * from './declare';
 export * from './format';
 export * from './internationalization';
+export * from "./language";
 
