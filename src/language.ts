@@ -14,14 +14,12 @@ export const getLanguageLocale = (language: string): LOCALE | undefined => {
             return LOCALE.CHINESE_SIMPLIFIED;
         case 'zh-tw':
             return LOCALE.CHINESE_TRADITIONAL;
+        case 'en-ca':
+            return LOCALE.ENGLISH_CANADA;
         case 'en-gb':
             return LOCALE.ENGLISH_UNITED_KINGDOM;
         case 'en-us':
             return LOCALE.ENGLISH_UNITED_STATES;
-        case 'en-ca':
-            return LOCALE.ENGLISH_CANADA;
-        case 'es-mx':
-            return LOCALE.SPANISH_MEXICO;
         case 'fr-ca':
             return LOCALE.FRENCH_CANADA;
         case 'fr-fr':
@@ -32,6 +30,12 @@ export const getLanguageLocale = (language: string): LOCALE | undefined => {
             return LOCALE.KOREAN_KOREA;
         case 'mi-nz':
             return LOCALE.MAORI_NEW_ZEALAND;
+        case 'ru-ru':
+            return LOCALE.RUSSIAN_RUSSIA;
+        case 'es-mx':
+            return LOCALE.SPANISH_MEXICO;
+        case 'es-es':
+            return LOCALE.SPANISH_SPAIN;
     }
 
     const languageHeader: string = lowerCased.substring(0, 2);
