@@ -24,6 +24,14 @@ export const getLanguageLocale = (language: string): LOCALE | undefined => {
             return LOCALE.SPANISH_MEXICO;
         case 'fr-ca':
             return LOCALE.FRENCH_CANADA;
+        case 'fr-fr':
+            return LOCALE.FRENCH_FRANCE;
+        case 'ja-jp':
+            return LOCALE.JAPANESE_JAPAN;
+        case 'ko-kr':
+            return LOCALE.KOREAN_KOREA;
+        case 'mi-nz':
+            return LOCALE.MAORI_NEW_ZEALAND;
     }
 
     const languageHeader: string = lowerCased.substring(0, 2);
