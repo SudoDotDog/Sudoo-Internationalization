@@ -4,9 +4,9 @@
  * @description Declare
  */
 
-export type BasicPlaceHolder = string | number | boolean | Date;
-export type RecordPlaceHolder = Record<string, BasicPlaceHolder>;
-export type PlaceHolder = BasicPlaceHolder | RecordPlaceHolder;
+export type BasicReplacement = string | number | boolean | Date;
+export type RecordReplacement = Record<string, BasicReplacement>;
+export type Replacement = BasicReplacement | RecordReplacement;
 
 export enum LOCALE {
 

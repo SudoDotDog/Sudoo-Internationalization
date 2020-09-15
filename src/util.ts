@@ -4,9 +4,9 @@
  * @description Util
  */
 
-import { BasicPlaceHolder, PlaceHolder, PROFILE, RecordPlaceHolder } from "./declare";
+import { BasicReplacement, Replacement, PROFILE, RecordReplacement } from "./declare";
 
-export const fillBasicPlaceholderMessage = (message: string, placeholder: string, replacement: BasicPlaceHolder): string => {
+export const fillBasicReplacementMessage = (message: string, placeholder: string, replacement: BasicReplacement): string => {
 
     if (typeof replacement === 'undefined') {
         return message.replace(placeholder, 'undefined');
@@ -29,29 +29,28 @@ export const fillBasicPlaceholderMessage = (message: string, placeholder: string
     return message.replace(placeholder, typeof replacement);
 };
 
-export const fillRecordPlaceholderMessage = (message: string, replacement: RecordPlaceHolder): string => {
+export const fillRecordReplacementMessage = (message: string, replacement: RecordReplacement): string => {
 
     const keys: string[] = Object.keys(replacement);
 
     return keys.reduce<string>((previous: string, currentKey: string) => {
 
-        const currentReplacement: BasicPlaceHolder = replacement[currentKey];
-        return fillBasicPlaceholderMessage(previous, `{${currentKey}}`, currentReplacement);
+        const currentReplacement: BasicReplacement = replacement[currentKey];
+        return fillBasicReplacementMessage(previous, `{${currentKey}}`, currentReplacement);
     }, message);
 };
 
-export const fillMessage = (message: string, ...placeholders: PlaceHolder[]): string => {
+export const fillMessage = (message: string, ...replacements: Replacement[]): string => {
 
-    return placeholders.reduce<string>((previous: string, placeholder: PlaceHolder) => {
+    return replacements.reduce<string>((previous: string, replacement: Replacement) => {
 
-        if (placeholder instanceof Date
-            || placeholder === null
-            || typeof placeholder !== 'object') {
+        if (replacement instanceof Date
+            || replacement === null
+            || typeof replacement !== 'object') {
 
-            return fillBasicPlaceholderMessage(previous, '{}', placeholder as any as BasicPlaceHolder);
+            return fillBasicReplacementMessage(previous, '{}', replacement as any as BasicReplacement);
         }
-
-        return fillRecordPlaceholderMessage(message, placeholder);
+        return fillRecordReplacementMessage(message, replacement);
     }, message);
 };
 
