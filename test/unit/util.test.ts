@@ -45,14 +45,4 @@ describe('Given [Utils] helper functions', (): void => {
             `${message}${slot.toString()}`,
         );
     });
-
-    it('should be able to fill not object message', (): void => {
-
-        const emptyObject: any = Object.create(null);
-        const message: string = chance.string();
-
-        expect(fillMessage(message + '{}', emptyObject)).to.be.equal(
-            `${message}object`,
-        );
-    });
 });
