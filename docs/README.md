@@ -14,3 +14,5 @@ yarn add @sudoo/internationalization
 # Or
 npm install @sudoo/internationalization --save
 ```
+
+## Usage
