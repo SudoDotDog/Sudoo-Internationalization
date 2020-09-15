@@ -6,3 +6,11 @@
 [![downloads](https://img.shields.io/npm/dm/@sudoo/internationalization.svg)](https://www.npmjs.com/package/@sudoo/internationalization)
 
 :bamboo: I18n
+
+## Install
+
+```sh
+yarn add @sudoo/internationalization
+# Or
+npm install @sudoo/internationalization --save
+```
