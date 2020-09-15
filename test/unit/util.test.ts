@@ -7,6 +7,7 @@
 
 import { expect } from "chai";
 import * as Chance from "chance";
+import { RecordReplacement } from "../../src/declare";
 import { fillMessage } from "../../src/util";
 
 describe('Given [Utils] helper functions', (): void => {
@@ -43,6 +44,33 @@ describe('Given [Utils] helper functions', (): void => {
 
         expect(fillMessage(message + '{}', slot)).to.be.equal(
             `${message}${slot.toString()}`,
+        );
+    });
+
+    it('should be able to fill object message', (): void => {
+
+        const value: string = chance.string();
+        const message: string = chance.string();
+        const slot: RecordReplacement = {
+            foo: value,
+        };
+
+        expect(fillMessage(message + '{foo}', slot)).to.be.equal(
+            `${message}${value}`,
+        );
+    });
+
+    it('should be able to fill combined message', (): void => {
+
+        const value: string = chance.string();
+        const innerValue: string = chance.string();
+        const message: string = chance.string();
+        const slot: RecordReplacement = {
+            foo: value,
+        };
+
+        expect(fillMessage(message + '{}{foo}', slot, innerValue)).to.be.equal(
+            `${message}${innerValue}${value}`,
         );
     });
 });
