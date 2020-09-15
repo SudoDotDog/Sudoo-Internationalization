@@ -4,11 +4,11 @@
  * @description Util
  */
 
-import { PROFILE } from "./declare";
+import { PlaceHolder, PROFILE } from "./declare";
 
-export const fillMessage = (message: string, ...placeholders: any[]): string => {
+export const fillMessage = (message: string, ...placeholders: PlaceHolder[]): string => {
 
-    return placeholders.reduce((previous: string, placeholder: any) => {
+    return placeholders.reduce<string>((previous: string, placeholder: PlaceHolder) => {
 
         if (typeof placeholder === 'undefined') {
             return previous.replace('{}', 'undefined');
@@ -18,11 +18,19 @@ export const fillMessage = (message: string, ...placeholders: any[]): string => 
             return previous.replace('{}', 'null');
         }
 
-        const fixed: string = Boolean(placeholder.toString)
-            ? placeholder.toString()
-            : typeof placeholder;
+        if (typeof placeholder === 'string'
+            || typeof placeholder === 'number'
+            || typeof placeholder === 'boolean') {
 
-        return previous.replace('{}', fixed);
+            // eslint-disable-next-line @typescript-eslint/unbound-method
+            const fixed: string = Boolean(placeholder.toString)
+                ? placeholder.toString()
+                : typeof placeholder;
+
+            return previous.replace('{}', fixed);
+        }
+
+        return previous;
     }, message);
 };
 
