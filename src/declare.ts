@@ -4,6 +4,9 @@
  * @description Declare
  */
 
+export type BasicPlaceHolder = string | number | boolean;
+export type PlaceHolder = BasicPlaceHolder | Record<string, BasicPlaceHolder>;
+
 export enum LOCALE {
 
     CHINESE_SIMPLIFIED = "zh_CN",
