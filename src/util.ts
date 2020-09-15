@@ -21,16 +21,14 @@ export const fillMessage = (message: string, ...placeholders: PlaceHolder[]): st
         if (typeof placeholder === 'string'
             || typeof placeholder === 'number'
             || typeof placeholder === 'boolean') {
-
-            // eslint-disable-next-line @typescript-eslint/unbound-method
-            const fixed: string = Boolean(placeholder.toString)
-                ? placeholder.toString()
-                : typeof placeholder;
-
-            return previous.replace('{}', fixed);
+            return previous.replace('{}', placeholder.toString());
         }
 
-        return previous;
+        if (placeholder instanceof Date) {
+            return previous.replace('{}', placeholder.toString());
+        }
+
+        return previous.replace('{}', typeof placeholder);
     }, message);
 };
 
