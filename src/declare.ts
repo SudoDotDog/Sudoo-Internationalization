@@ -4,7 +4,7 @@
  * @description Declare
  */
 
-export type BasicPlaceHolder = string | number | boolean | Date;
+export type BasicPlaceHolder = undefined | null | string | number | boolean | Date;
 export type PlaceHolder = BasicPlaceHolder | Record<string, BasicPlaceHolder>;
 
 export enum LOCALE {
