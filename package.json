@@ -16,7 +16,6 @@
     "url": "https://github.com/SudoDotDog/Sudoo-Internationalization/issues"
   },
   "homepage": "https://github.com/SudoDotDog/Sudoo-Internationalization#readme",
-  "dependencies": {},
   "devDependencies": {
     "@sudoo/io": "^1.8.0",
     "@sudoo/triforce": "^2.8.7"
