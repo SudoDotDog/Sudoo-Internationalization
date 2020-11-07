@@ -18,7 +18,7 @@ npm install @sudoo/internationalization --save
 ## Usage
 
 ```ts
-import { LOCALE, SudooFormat, SudooInternationalization } from "../src";
+import { LOCALE, SudooFormat, SudooInternationalization } from "@sudoo/internationalization";
 
 const i18n: SudooInternationalization = SudooInternationalization.create(LOCALE.ENGLISH_UNITED_STATES);
 i18n.set(LOCALE.ENGLISH_UNITED_STATES, {
@@ -28,10 +28,10 @@ i18n.set(LOCALE.ENGLISH_UNITED_STATES, {
 
 const formatter: SudooFormat = i18n.format(LOCALE.ENGLISH_UNITED_STATES);
 
-console.log(formatter.get('simple', 2000));
+console.log(formatter.get('simple', 2000)); // foo bar 2000
 console.log(formatter.get('named', {
     value: 2000,
-}));
+})); // foo bar 2000
 ```
 
 This document is working in progress, for all usage features, see source code.
