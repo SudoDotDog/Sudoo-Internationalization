@@ -33,3 +33,5 @@ console.log(formatter.get('named', {
     value: 2000,
 }));
 ```
+
+This document is working in progress, for all usage features, see source code.
