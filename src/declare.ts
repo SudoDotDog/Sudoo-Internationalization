@@ -25,4 +25,4 @@ export enum LOCALE {
     SPANISH_SPAIN = "es_ES",
 }
 
-export type PROFILE = Record<string, string>;
+export type PROFILE<K extends string = string> = Record<K, string>;

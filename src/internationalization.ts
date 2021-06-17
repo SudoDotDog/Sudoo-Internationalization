@@ -9,11 +9,11 @@ import { SudooFormat } from "./format";
 import { getSystemLanguage } from "./language";
 import { profileOrEmpty } from "./util";
 
-export class SudooInternationalization<P extends PROFILE = any> {
+export class SudooInternationalization<PK extends string = string> {
 
-    public static create<P extends PROFILE = any>(initial: LOCALE): SudooInternationalization<P> {
+    public static create<PK extends string = string>(initial: LOCALE): SudooInternationalization<PK> {
 
-        return new SudooInternationalization<P>(initial);
+        return new SudooInternationalization<PK>(initial);
     }
 
     public static withSystemLanguage(): SudooInternationalization {
@@ -23,35 +23,35 @@ export class SudooInternationalization<P extends PROFILE = any> {
     }
 
     private readonly _initial: LOCALE;
-    private readonly _map: Map<LOCALE, P>;
+    private readonly _map: Map<LOCALE, PROFILE<PK>>;
 
     private constructor(initial: LOCALE) {
 
         this._initial = initial;
-        this._map = new Map<LOCALE, P>();
+        this._map = new Map<LOCALE, PROFILE<PK>>();
     }
 
-    public set(code: LOCALE, profile: P): SudooInternationalization {
+    public set(code: LOCALE, profile: PROFILE<PK>): SudooInternationalization {
 
         this._map.set(code, profile);
         return this;
     }
 
-    public merge(code: LOCALE, profile: P): SudooInternationalization {
+    public merge(code: LOCALE, profile: PROFILE<PK>): SudooInternationalization {
 
-        const current: P = this._get(code);
-        const newProfile: P = {
+        const current: PROFILE<PK> = this._get(code);
+        const newProfile: PROFILE<PK> = {
             ...current,
             ...profile,
         };
         return this.set(code, newProfile);
     }
 
-    public format(code: LOCALE): SudooFormat {
+    public format(code: LOCALE): SudooFormat<PK> {
 
-        const profile: P = this._get(code);
-        const initial: P = this._get(this._initial);
-        return SudooFormat.create<P>(profile, initial);
+        const profile: PROFILE<PK> = this._get(code);
+        const initial: PROFILE<PK> = this._get(this._initial);
+        return SudooFormat.create<PK>(profile, initial);
     }
 
     public count(code: LOCALE): number {
@@ -59,8 +59,8 @@ export class SudooInternationalization<P extends PROFILE = any> {
         return this.format(code).length;
     }
 
-    private _get(code: LOCALE): P {
+    private _get(code: LOCALE): PROFILE<PK> {
 
-        return profileOrEmpty(this._map.get(code)) as P;
+        return profileOrEmpty(this._map.get(code)) as PROFILE<PK>;
     }
 }

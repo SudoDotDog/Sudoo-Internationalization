@@ -7,17 +7,17 @@
 import { PROFILE } from "./declare";
 import { fillMessage } from "./util";
 
-export class SudooFormat<P extends PROFILE = any> {
+export class SudooFormat<PK extends string = string> {
 
-    public static create<P extends PROFILE = any>(profile: P, initial: P): SudooFormat<P> {
+    public static create<PK extends string = string>(profile: PROFILE<PK>, initial: PROFILE<PK>): SudooFormat<PK> {
 
-        return new SudooFormat<P>(profile, initial);
+        return new SudooFormat<PK>(profile, initial);
     }
 
-    private readonly _profile: P;
-    private readonly _initial: P;
+    private readonly _profile: PROFILE<PK>;
+    private readonly _initial: PROFILE<PK>;
 
-    private constructor(profile: P, initial: P) {
+    private constructor(profile: PROFILE<PK>, initial: PROFILE<PK>) {
 
         this._profile = profile;
         this._initial = initial;
@@ -27,7 +27,7 @@ export class SudooFormat<P extends PROFILE = any> {
         return Object.keys(this._profile).length;
     }
 
-    public raw(key: keyof P): string {
+    public raw(key: keyof PROFILE<PK>): string {
 
         if (typeof this._profile[key] === 'string') {
             return this._profile[key];
@@ -40,7 +40,7 @@ export class SudooFormat<P extends PROFILE = any> {
         throw new Error(`[Sudoo-Internationalization] undefined key: {${errorKey}}`);
     }
 
-    public get(key: keyof P, ...args: any[]): string {
+    public get(key: PK, ...args: any[]): string {
 
         const raw: string = this.raw(key);
         return fillMessage(raw, ...args);
