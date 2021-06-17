@@ -11,7 +11,7 @@ export class SudooFormat<P extends PROFILE = any> {
 
     public static create<P extends PROFILE = any>(profile: P, initial: P): SudooFormat<P> {
 
-        return new SudooFormat(profile, initial);
+        return new SudooFormat<P>(profile, initial);
     }
 
     private readonly _profile: P;
