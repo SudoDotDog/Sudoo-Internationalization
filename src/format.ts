@@ -4,7 +4,7 @@
  * @description Format
  */
 
-import { PROFILE } from "./declare";
+import { PROFILE, Replacement } from "./declare";
 import { fillMessage } from "./util";
 
 export class SudooFormat<PK extends string = string> {
@@ -40,7 +40,7 @@ export class SudooFormat<PK extends string = string> {
         throw new Error(`[Sudoo-Internationalization] undefined key: {${errorKey}}`);
     }
 
-    public get(key: PK, ...args: any[]): string {
+    public get(key: PK, ...args: Replacement[]): string {
 
         const raw: string = this.raw(key);
         return fillMessage(raw, ...args);
