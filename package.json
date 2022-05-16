@@ -18,7 +18,7 @@
   "homepage": "https://github.com/SudoDotDog/Sudoo-Internationalization#readme",
   "devDependencies": {
     "@sudoo/io": "^1.8.0",
-    "@sudoo/triforce": "^3.5.1"
+    "@sudoo/triforce": "^3.6.0"
   },
   "nyc": {
     "extension": [
