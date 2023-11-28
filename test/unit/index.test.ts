@@ -5,17 +5,17 @@
  * @package Unit Test
  */
 
+import { IETF_LOCALE } from "@sudoo/locale";
 import { expect } from "chai";
 import * as Chance from "chance";
-import { LOCALE } from "../../src/declare";
 import { SudooFormat } from "../../src/format";
 import { SudooInternationalization } from "../../src/internationalization";
 
 describe('General unit tests', (): void => {
 
     const chance: Chance.Chance = new Chance('internationalization-index');
-    const US: LOCALE = LOCALE.ENGLISH_UNITED_STATES;
-    const CN: LOCALE = LOCALE.CHINESE_SIMPLIFIED;
+    const US: IETF_LOCALE = IETF_LOCALE.ENGLISH_UNITED_STATES;
+    const CN: IETF_LOCALE = IETF_LOCALE.CHINESE_SIMPLIFIED;
 
     it('should be able to get different locale', (): void => {
 

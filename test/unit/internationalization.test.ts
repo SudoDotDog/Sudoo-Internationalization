@@ -5,15 +5,15 @@
  * @package Unit Test
  */
 
+import { IETF_LOCALE } from "@sudoo/locale";
 import { expect } from "chai";
 import * as Chance from "chance";
-import { LOCALE } from "../../src/declare";
 import { SudooInternationalization } from "../../src/internationalization";
 
 describe('Given a {Internationalization} class', (): void => {
 
     const chance: Chance.Chance = new Chance('internationalization-internationalization');
-    const locale: LOCALE = LOCALE.ENGLISH_UNITED_STATES;
+    const locale: IETF_LOCALE = IETF_LOCALE.ENGLISH_UNITED_STATES;
 
     it('should be able to create a instance', (): void => {
 
