@@ -1,7 +1,7 @@
 {
   "name": "@sudoo/internationalization",
-  "version": "1.7.1",
-  "description": ":bamboo: I18n",
+  "version": "2.0.0",
+  "description": "I18n",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SudoDotDog/Sudoo-Internationalization.git"
@@ -17,8 +17,13 @@
   },
   "homepage": "https://github.com/SudoDotDog/Sudoo-Internationalization#readme",
   "devDependencies": {
-    "@sudoo/io": "^1.8.0",
-    "@sudoo/triforce": "^3.11.0"
+    "@sudoo/locale": "2.0.0",
+    "@sudoo/triforce": "^3.11.0",
+    "global-jsdom": "^9.1.0",
+    "jsdom": "^23.0.0"
+  },
+  "peerDependencies": {
+    "@sudoo/locale": "^2"
   },
   "nyc": {
     "extension": [
