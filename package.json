@@ -19,7 +19,7 @@
   "devDependencies": {
     "@sudoo/locale": "2.0.0",
     "@sudoo/triforce": "^3.12.0",
-    "global-jsdom": "^9.1.0",
+    "global-jsdom": "^9.2.0",
     "jsdom": "^23.0.1"
   },
   "peerDependencies": {
