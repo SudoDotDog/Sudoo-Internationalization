@@ -4,21 +4,21 @@
  * @description Util
  */
 
-import { BasicReplacement, Replacement, PROFILE, RecordReplacement } from "./declare";
+import { BasicReplacement, PROFILE, RecordReplacement, Replacement } from "./declare";
 
 export const fillBasicReplacementMessage = (message: string, placeholder: string, replacement: BasicReplacement): string => {
 
-    if (typeof replacement === 'undefined') {
-        return message.replace(placeholder, 'undefined');
+    if (typeof replacement === "undefined") {
+        return message.replace(placeholder, "undefined");
     }
 
     if (replacement === null) {
-        return message.replace(placeholder, 'null');
+        return message.replace(placeholder, "null");
     }
 
-    if (typeof replacement === 'string'
-        || typeof replacement === 'number'
-        || typeof replacement === 'boolean') {
+    if (typeof replacement === "string"
+        || typeof replacement === "number"
+        || typeof replacement === "boolean") {
         return message.replace(placeholder, replacement.toString());
     }
 
@@ -46,9 +46,9 @@ export const fillMessage = (message: string, ...replacements: Replacement[]): st
 
         if (replacement instanceof Date
             || replacement === null
-            || typeof replacement !== 'object') {
+            || typeof replacement !== "object") {
 
-            return fillBasicReplacementMessage(previous, '{}', replacement as any as BasicReplacement);
+            return fillBasicReplacementMessage(previous, "{}", replacement as any as BasicReplacement);
         }
         return fillRecordReplacementMessage(message, replacement);
     }, message);

@@ -29,10 +29,10 @@ export class SudooFormat<PK extends string = string> {
 
     public raw(key: keyof PROFILE<PK>): string {
 
-        if (typeof this._profile[key] === 'string') {
+        if (typeof this._profile[key] === "string") {
             return this._profile[key];
         }
-        if (typeof this._initial[key] === 'string') {
+        if (typeof this._initial[key] === "string") {
             return this._initial[key];
         }
 

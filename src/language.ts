@@ -10,51 +10,51 @@ export const getLanguageLocale = (language: string): IETF_LOCALE | undefined => 
 
     const lowerCased: string = language.toLowerCase();
     switch (lowerCased) {
-        case 'zh-cn':
+        case "zh-cn":
             return IETF_LOCALE.CHINESE_SIMPLIFIED;
-        case 'zh-tw':
+        case "zh-tw":
             return IETF_LOCALE.CHINESE_TRADITIONAL;
-        case 'en-ca':
+        case "en-ca":
             return IETF_LOCALE.ENGLISH_CANADA;
-        case 'en-gb':
+        case "en-gb":
             return IETF_LOCALE.ENGLISH_UNITED_KINGDOM;
-        case 'en-us':
+        case "en-us":
             return IETF_LOCALE.ENGLISH_UNITED_STATES;
-        case 'fr-ca':
+        case "fr-ca":
             return IETF_LOCALE.FRENCH_CANADA;
-        case 'fr-fr':
+        case "fr-fr":
             return IETF_LOCALE.FRENCH_FRANCE;
-        case 'ja-jp':
+        case "ja-jp":
             return IETF_LOCALE.JAPANESE_JAPAN;
-        case 'ko-kr':
+        case "ko-kr":
             return IETF_LOCALE.KOREAN_KOREA;
-        case 'mi-nz':
+        case "mi-nz":
             return IETF_LOCALE.MAORI_NEW_ZEALAND;
-        case 'ru-ru':
+        case "ru-ru":
             return IETF_LOCALE.RUSSIAN_RUSSIA;
-        case 'es-mx':
+        case "es-mx":
             return IETF_LOCALE.SPANISH_MEXICO;
-        case 'es-es':
+        case "es-es":
             return IETF_LOCALE.SPANISH_SPAIN;
     }
 
     const languageHeader: string = lowerCased.substring(0, 2);
     switch (languageHeader) {
-        case 'zh':
+        case "zh":
             return IETF_LOCALE.CHINESE_SIMPLIFIED;
-        case 'en':
+        case "en":
             return IETF_LOCALE.ENGLISH_UNITED_STATES;
-        case 'fr':
+        case "fr":
             return IETF_LOCALE.FRENCH_FRANCE;
-        case 'ja':
+        case "ja":
             return IETF_LOCALE.JAPANESE_JAPAN;
-        case 'ko':
+        case "ko":
             return IETF_LOCALE.KOREAN_KOREA;
-        case 'mi':
+        case "mi":
             return IETF_LOCALE.MAORI_NEW_ZEALAND;
-        case 'ru':
+        case "ru":
             return IETF_LOCALE.RUSSIAN_RUSSIA;
-        case 'es':
+        case "es":
             return IETF_LOCALE.SPANISH_SPAIN;
     }
 
@@ -88,11 +88,11 @@ export const getSystemLanguage = (defaultLanguage: IETF_LOCALE = IETF_LOCALE.ENG
         }
     }
 
-    const legacyLanguageProperties: string[] = ['browserLanguage', 'systemLanguage', 'userLanguage'];
+    const legacyLanguageProperties: string[] = ["browserLanguage", "systemLanguage", "userLanguage"];
     for (const property of legacyLanguageProperties) {
 
         const language: any = navigator[property as any as keyof Navigator];
-        if (typeof language !== 'string') {
+        if (typeof language !== "string") {
             continue;
         }
 
