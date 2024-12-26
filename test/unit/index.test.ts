@@ -6,8 +6,7 @@
  */
 
 import { IETF_LOCALE } from "@sudoo/locale";
-import { expect } from "chai";
-import * as Chance from "chance";
+import Chance from "chance";
 import { SudooFormat } from "../../src/format";
 import { SudooInternationalization } from "../../src/internationalization";
 
@@ -24,8 +23,8 @@ describe('General unit tests', (): void => {
             [chance.string()]: chance.string(),
         });
 
-        expect(intl.count(US)).to.be.equal(1);
-        expect(intl.count(CN)).to.be.equal(0);
+        expect(intl.count(US)).toEqual(1);
+        expect(intl.count(CN)).toEqual(0);
     });
 
     it('should be able to get active message', (): void => {
@@ -39,7 +38,7 @@ describe('General unit tests', (): void => {
         });
 
         const format: SudooFormat = intl.format(US);
-        expect(format.raw(key)).to.be.equal(value);
+        expect(format.raw(key)).toEqual(value);
     });
 
     it('should be able to get default message', (): void => {
@@ -53,6 +52,6 @@ describe('General unit tests', (): void => {
         });
 
         const format: SudooFormat = intl.format(CN);
-        expect(format.raw(key)).to.be.equal(value);
+        expect(format.raw(key)).toEqual(value);
     });
 });

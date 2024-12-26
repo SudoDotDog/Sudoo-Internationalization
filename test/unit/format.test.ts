@@ -5,8 +5,7 @@
  * @package Unit Test
  */
 
-import { expect } from "chai";
-import * as Chance from "chance";
+import Chance from "chance";
 import { SudooFormat } from "../../src/format";
 
 describe('Given a {Format} class', (): void => {
@@ -17,7 +16,7 @@ describe('Given a {Format} class', (): void => {
 
         const format: SudooFormat = SudooFormat.create({}, {});
 
-        expect(format).to.be.instanceOf(SudooFormat);
+        expect(format).toBeInstanceOf(SudooFormat);
     });
 
     it('should be able to get raw value from active profile', (): void => {
@@ -29,7 +28,7 @@ describe('Given a {Format} class', (): void => {
             [key]: value,
         }, {});
 
-        expect(format.raw(key)).to.be.equal(value);
+        expect(format.raw(key)).toEqual(value);
     });
 
     it('should be able to get raw value from default profile', (): void => {
@@ -41,7 +40,7 @@ describe('Given a {Format} class', (): void => {
             [key]: value,
         });
 
-        expect(format.raw(key)).to.be.equal(value);
+        expect(format.raw(key)).toEqual(value);
     });
 
     it('should be able to throw error', (): void => {
@@ -52,7 +51,7 @@ describe('Given a {Format} class', (): void => {
 
         const exec: () => void = () => format.raw(key);
 
-        expect(exec).to.be.throw(`[Sudoo-Internationalization] undefined key: {${key}}`);
+        expect(exec).toThrow(`[Sudoo-Internationalization] undefined key: {${key}}`);
     });
 
     it('should be able to get raw parsed value', (): void => {
@@ -64,7 +63,7 @@ describe('Given a {Format} class', (): void => {
             [key]: value,
         }, {});
 
-        expect(format.get(key)).to.be.equal(value);
+        expect(format.get(key)).toEqual(value);
     });
 
     it('should be able to get single filled parsed value', (): void => {
@@ -79,6 +78,6 @@ describe('Given a {Format} class', (): void => {
             [key]: parsed,
         }, {});
 
-        expect(format.get(key, placeholder)).to.be.equal(`${value} ${placeholder}`);
+        expect(format.get(key, placeholder)).toEqual(`${value} ${placeholder}`);
     });
 });

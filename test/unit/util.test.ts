@@ -5,8 +5,7 @@
  * @package Unit Test
  */
 
-import { expect } from "chai";
-import * as Chance from "chance";
+import Chance from "chance";
 import { RecordReplacement } from "../../src/declare";
 import { fillMessage } from "../../src/util";
 
@@ -18,7 +17,7 @@ describe('Given [Utils] helper functions', (): void => {
 
         const message: string = chance.string();
 
-        expect(fillMessage(message)).to.be.equal(message);
+        expect(fillMessage(message)).toEqual(message);
     });
 
     it('should be able to fill complex message', (): void => {
@@ -32,7 +31,7 @@ describe('Given [Utils] helper functions', (): void => {
         const slot2: string = chance.string();
         const message: string = slots.join('{}');
 
-        expect(fillMessage(message, slot1, slot2)).to.be.equal(
+        expect(fillMessage(message, slot1, slot2)).toEqual(
             `${slots[0]}${slot1}${slots[1]}${slot2}${slots[2]}`,
         );
     });
@@ -42,7 +41,7 @@ describe('Given [Utils] helper functions', (): void => {
         const message: string = chance.string();
         const slot: Date = chance.date();
 
-        expect(fillMessage(message + '{}', slot)).to.be.equal(
+        expect(fillMessage(message + '{}', slot)).toEqual(
             `${message}${slot.toString()}`,
         );
     });
@@ -55,7 +54,7 @@ describe('Given [Utils] helper functions', (): void => {
             foo: value,
         };
 
-        expect(fillMessage(message + '{foo}', slot)).to.be.equal(
+        expect(fillMessage(message + '{foo}', slot)).toEqual(
             `${message}${value}`,
         );
     });
@@ -69,7 +68,7 @@ describe('Given [Utils] helper functions', (): void => {
             foo: value,
         };
 
-        expect(fillMessage(message + '{}{foo}', slot, innerValue)).to.be.equal(
+        expect(fillMessage(message + '{}{foo}', slot, innerValue)).toEqual(
             `${message}${innerValue}${value}`,
         );
     });

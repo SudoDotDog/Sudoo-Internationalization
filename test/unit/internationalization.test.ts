@@ -6,8 +6,7 @@
  */
 
 import { IETF_LOCALE } from "@sudoo/locale";
-import { expect } from "chai";
-import * as Chance from "chance";
+import Chance from "chance";
 import { SudooInternationalization } from "../../src/internationalization";
 
 describe('Given a {Internationalization} class', (): void => {
@@ -19,7 +18,7 @@ describe('Given a {Internationalization} class', (): void => {
 
         const intl: SudooInternationalization = SudooInternationalization.create(locale);
 
-        expect(intl).to.be.instanceOf(SudooInternationalization);
+        expect(intl).toBeInstanceOf(SudooInternationalization);
     });
 
     it('should be able to set profile', (): void => {
@@ -32,7 +31,7 @@ describe('Given a {Internationalization} class', (): void => {
         intl.set(locale, {
             [chance.string()]: chance.string(),
         });
-        expect(intl.count(locale)).to.be.equal(1);
+        expect(intl.count(locale)).toEqual(1);
     });
 
     it('should be able to merge profile', (): void => {
@@ -45,7 +44,7 @@ describe('Given a {Internationalization} class', (): void => {
         intl.merge(locale, {
             [chance.string()]: chance.string(),
         });
-        expect(intl.count(locale)).to.be.equal(2);
+        expect(intl.count(locale)).toEqual(2);
     });
 
     it('should be able to get format', (): void => {
@@ -55,6 +54,6 @@ describe('Given a {Internationalization} class', (): void => {
         intl.set(locale, {
             [chance.string()]: chance.string(),
         });
-        expect(intl.format(locale)).to.be.lengthOf(1);
+        expect(intl.format(locale)).toHaveLength(1);
     });
 });
