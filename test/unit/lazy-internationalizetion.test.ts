@@ -47,7 +47,7 @@ describe('Given a {LazyInternationalization} class', (): void => {
         expect(format.get(key)).toEqual(value);
     });
 
-    it.only('should be able to format with async import', async (): Promise<void> => {
+    it('should be able to format with async import', async (): Promise<void> => {
 
         const mockProfile = Promise.resolve((await import("../mock/mock-profile")).default);
 

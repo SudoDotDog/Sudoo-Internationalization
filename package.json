@@ -1,7 +1,7 @@
 {
   "name": "@sudoo/internationalization",
   "packageManager": "yarn@4.5.1",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "I18n",
   "repository": {
     "type": "git",
@@ -14,9 +14,7 @@
     "clean": "rm -rf app",
     "build": "tsc --project typescript/tsconfig.build.json",
     "license": "sdb license",
-    "add-bin": "ts-node --project typescript/tsconfig.script.json scripts/add-bin.ts",
-    "replace-version": "ts-node --project typescript/tsconfig.script.json scripts/replace-version.ts",
-    "release": "yarn lint && yarn test && yarn license && yarn build && yarn replace-version && yarn add-bin",
+    "release": "yarn lint && yarn test && yarn license && yarn build",
     "publish-dry-run": "yarn release && sdb --only publish-dry-run",
     "publish": "yarn release && sdb --only publish"
   },
