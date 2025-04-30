@@ -30,7 +30,7 @@
   "homepage": "https://github.com/SudoDotDog/Sudoo-Internationalization#readme",
   "devDependencies": {
     "@babel/core": "^7.26.0",
-    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-env": "^7.27.1",
     "@babel/preset-typescript": "^7.26.0",
     "@sudoo/locale": "2.0.0",
     "@types/chance": "^1.1.6",
